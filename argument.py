@@ -1,8 +1,8 @@
 import sys as sys
 import os as os
 
-from error.error import ThrowError as Error
-from install.install import InstallPackage
+from error import ThrowError as Error
+from install import InstallPackage
 """
 If a person has to set any command
 he has to set a env to
@@ -34,6 +34,8 @@ class CodeRollerParser(object):
         """
         if self.find_code_roller_path() is not None:
             self.directory = self.find_code_roller_path()
+        else:
+            self.directory = "code-roller"
 
         if self.length == 0:
             pass

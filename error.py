@@ -1,6 +1,4 @@
-from clint.textui import colored as TextColor
-import os as os
-
+import os
 
 class ThrowError():
     def __init__(self, error_message, error_recomendation=None):
@@ -16,14 +14,14 @@ class ThrowError():
         Print each message in the message array
         """
         error_statement_list = list([
-            "An Error occured", f"{error_message}",
-            f"try : {self.recomendation}"
+            "An Error ocurred", f"{error_message}",
+            f"try: {self.recomendation}"
         ])
 
         for message_index, message in enumerate(error_statement_list):
             if message_index == (len(error_statement_list) - 1):
                 if message is not None:
-                    print(TextColor.cyan(message))
+                    print("\033[96m"+message+"\033[0m")
                 continue
 
-            print(TextColor.red(message))
+            print("\033[91m"+message+"\033[0m")
