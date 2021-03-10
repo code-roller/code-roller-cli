@@ -1,4 +1,5 @@
 import os as os
+from clint.textui import colored as ColorText
 
 class ThrowError():
     def __init__(self, error_message, error_recomendation=None):
@@ -21,7 +22,7 @@ class ThrowError():
         for message_index, message in enumerate(error_statement_list):
             if message_index == (len(error_statement_list) - 1):
                 if message is not None:
-                    print("\033[96m"+message+"\033[0m")
+                    print(ColorText.cyan(message))
                 continue
 
-            print("\033[91m"+message+"\033[0m")
+            print(ColorText.red(message))
