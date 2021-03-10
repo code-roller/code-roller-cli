@@ -1,4 +1,4 @@
-import os
+import os as os
 
 class ThrowError():
     def __init__(self, error_message, error_recomendation=None):

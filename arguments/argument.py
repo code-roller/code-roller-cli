@@ -1,8 +1,8 @@
 import sys as sys
 import os as os
 
-from error import ThrowError as Error
-from install import InstallPackage
+from error.error import ThrowError as Error
+from install.install import InstallPackage
 """
 If a person has to set any command
 he has to set a env to

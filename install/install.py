@@ -1,7 +1,7 @@
 import os
 import urllib.request
 from zipfile import ZipFile
-from error import ThrowError
+from error.error import ThrowError
 
 class InstallPackage(object):
     def __init__(self, package_name, install_directory):
