@@ -6,7 +6,7 @@ To install:
 ```
 code-roller install $package$
 ```
-where package can be anything in [packages.txt](packages.txt)
+where package can be anything in [requirements.txt](requirements.txt)
 
 ## License
 The code roller cli is licensed under the
