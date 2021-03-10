@@ -8,11 +8,19 @@ class ThrowError():
 
         self.error_from_dir = os.getcwd()
 
-        self.throw_error_message()
+        self.throw_error_message(self.error_message)
 
     def throw_error_message(self, error_message):
         error_statement_list = list([
             "An Error occured",
-            f":{error_message}:",
-            f"\ntry : {self.recomendation}"
+            f"{error_message}",
+            f"try : {self.recomendation}"
         ])
+
+        for message_index, message in enumerate(error_statement_list):
+            if message_index == (len(error_statement_list) - 1):
+                if message is not None:
+                    print(TextColor.cyan(message))
+                continue
+
+            print(TextColor.red(message))

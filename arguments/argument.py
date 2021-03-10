@@ -1,6 +1,9 @@
 import sys as sys
 import os as os
 
+from error.error import ThrowError as Error
+from install.install import InstallPackage 
+
 """
 If a person has to set any command
 he has to set a env to
@@ -28,9 +31,15 @@ class CodeRollerParser(object):
         if self.length == 0:
             pass
         elif self.length == 2:
-            pass
+            command, arguments = self.arguments[0], self.arguments[-1]
+            
+            if command == "install":
+                package = InstallPackage(arguments, self.directory)
         else:
-            pass
+            error = Error(
+                f"Unexpected {self.length} arguments",
+                "code-roller install $package"
+            )
 
     def find_code_roller_path(self):
         IDENTIFIER = "CODE-ROLLER"
