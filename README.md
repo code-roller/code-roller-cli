@@ -1,7 +1,12 @@
 # Code Roller CLI
 The official Code Roller Cli
 
-> The cli is still under contruction
+## Usage
+To install:
+```
+code-roller install $package$
+```
+where package can be anything in [packages.txt](packages.txt)
 
 ## License
 The code roller cli is licensed under the
