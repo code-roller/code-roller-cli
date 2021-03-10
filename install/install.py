@@ -7,4 +7,7 @@ class InstallPackage(object):
 
         self.install_directory = install_directory
 
-        print(self.package_name)
+        self.install_package()
+
+    def install_package(self):
+        """This function needs to be implemented"""
