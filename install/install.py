@@ -16,6 +16,7 @@ from error.error import ThrowError
 #         else:
 #             error = ThrowError("Package not found", "Please try a package name that actually exists")
 
+
 class InstallPackage(object):
     def __init__(self, package_name, install_directory):
         self.package_name = package_name
@@ -28,24 +29,20 @@ class InstallPackage(object):
     def install_package(self):
         self.repos = self.find_all_existsing_repos()
 
-        if not self.check_for_package(self.package_name):
-            ThrowError(f"Cannot find package {self.package_name}")
+        if self.check_for_package(self.package_name):
+            ThrowError(f"Cannot find package {self.package_name}", "Another package")
             sys.exit()
 
+        if not os.path.exists(self.install_directory):os.mkdir(self.install_directory)
 
 
     def check_for_package(self, package_name):
         package_names = []
         for index in range(len(self.repos)):
             if "name" in self.repos[index]:
-                package_names.append(
-                    self.repos[
-                        index
-                    ]["name"]
-                )
-        return len(
-            list(filter(lambda el : el == package_name, package_names))
-        ) == 0
+                package_names.append(self.repos[index]["name"])
+        return len(list(filter(lambda el: el == package_name,
+                               package_names))) == 0
 
     def find_all_existsing_repos(self):
         try:
@@ -54,7 +51,3 @@ class InstallPackage(object):
         except Exception as exception:
             ThrowError("It seem like you are offline", "Try reconnecting")
             sys.exit()
-
-
-
-    
