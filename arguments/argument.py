@@ -25,6 +25,13 @@ class CodeRollerParser(object):
         self.parse_arguments()
 
     def parse_arguments(self):
+        """
+        Check of code roller is added in the environment
+        variables, if yes, return that
+
+        else, return None, so that direcotory
+        becomes the current directory
+        """
         if self.find_code_roller_path() is not None:
             self.directory = self.find_code_roller_path()
 
@@ -34,6 +41,9 @@ class CodeRollerParser(object):
             command, arguments = self.arguments[0], self.arguments[-1]
             
             if command == "install":
+                """
+                Install the package
+                """
                 package = InstallPackage(arguments, self.directory)
         else:
             error = Error(

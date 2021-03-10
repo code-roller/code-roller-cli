@@ -11,6 +11,9 @@ class ThrowError():
         self.throw_error_message(self.error_message)
 
     def throw_error_message(self, error_message):
+        """
+        Print each message in the message array
+        """
         error_statement_list = list([
             "An Error occured",
             f"{error_message}",
