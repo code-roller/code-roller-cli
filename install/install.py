@@ -1,7 +1,7 @@
-import os as os
-import sys as sys
+import os
+import sys
 import urllib.request
-import zipfile as zipfile
+import zipfile
 from error.error import ThrowError
 from pip._vendor import requests
 
@@ -44,6 +44,10 @@ class InstallPackage(object):
 
         urllib.request.urlretrieve(f"https://github.com/code-roller/{self.package_name}/archive/v{packageVersions[self.package_name]}.zip", f".\\code-roller\\{self.package_name}.zip")
 
+        with zipfile.ZipFile(f".\\code-roller\\{self.package_name}.zip", 'r') as zipObj:
+            zipObj.extractall(f".\{self.install_directory}\{self.package_name}")
+
+        os.system(f"del .\{self.install_directory}\{self.package_name}.zip")
 
     def check_for_package(self, package_name):
         package_names = []
@@ -54,9 +58,8 @@ class InstallPackage(object):
 
     def find_all_existsing_repos(self):
         try:
-            repos = requests.get(self.find_repositories)
+            repos: requests.Response = requests.get(self.find_repositories)
             return repos.json()
         except Exception as exception:
-            ThrowError("It seems like you are offline", "Try reconnecting")
-            print(exception.__str__())
+            ThrowError(exception.__str__(), "Try reconnecting")
             sys.exit()
