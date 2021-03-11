@@ -1,8 +1,9 @@
 import os as os
 import sys as sys
-import requests as request
+import urllib.request
 import zipfile as zipfile
 from error.error import ThrowError
+from pip._vendor import requests
 
 # def install_package(self):
 #         if not (os.path.exists(f".\{self.install_directory}") and os.path.isdir(f".\{self.install_directory}")):
@@ -16,6 +17,12 @@ from error.error import ThrowError
 #         else:
 #             error = ThrowError("Package not found", "Please try a package name that actually exists")
 
+
+# Latest versions for packages, these will be useful later.
+packageVersions: dict = {
+    "jsobj": "1.0.0",
+    "pyPtr": "1.0.0"
+}
 
 class InstallPackage(object):
     def __init__(self, package_name, install_directory):
@@ -33,7 +40,9 @@ class InstallPackage(object):
             ThrowError(f"Cannot find package {self.package_name}", "Another package")
             sys.exit()
 
-        if not os.path.exists(self.install_directory):os.mkdir(self.install_directory)
+        if not (os.path.exists(self.install_directory) and os.path.isdir(self.install_directory)): os.mkdir(self.install_directory)
+
+        urllib.request.urlretrieve(f"https://github.com/code-roller/{self.package_name}/archive/v{packageVersions[self.package_name]}.zip", f".\\code-roller\\{self.package_name}.zip")
 
 
     def check_for_package(self, package_name):
@@ -41,13 +50,13 @@ class InstallPackage(object):
         for index in range(len(self.repos)):
             if "name" in self.repos[index]:
                 package_names.append(self.repos[index]["name"])
-        return len(list(filter(lambda el: el == package_name,
-                               package_names))) == 0
+        return len(list(filter(lambda el: el == package_name, package_names))) == 0
 
     def find_all_existsing_repos(self):
         try:
-            repos = request.get(self.find_repositories)
+            repos = requests.get(self.find_repositories)
             return repos.json()
         except Exception as exception:
-            ThrowError("It seem like you are offline", "Try reconnecting")
+            ThrowError("It seems like you are offline", "Try reconnecting")
+            print(exception.__str__())
             sys.exit()

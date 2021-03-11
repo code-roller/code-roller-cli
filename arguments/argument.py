@@ -35,7 +35,7 @@ class CodeRollerParser(object):
         if self.find_code_roller_path() is not None:
             self.directory = self.find_code_roller_path()
         else:
-            self.directory = "code-roller"
+            self.directory = ".\code-roller"
 
         if self.length == 0:
             pass
@@ -48,8 +48,7 @@ class CodeRollerParser(object):
                 """
                 package = InstallPackage(arguments, self.directory)
         else:
-            error = Error(f"Unexpected {self.length} arguments",
-                          "code-roller install $package")
+            error = Error(f"Unexpected {self.length} arguments", "code-roller install $package")
 
     def find_code_roller_path(self):
         IDENTIFIER = "CODE-ROLLER"
