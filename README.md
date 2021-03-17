@@ -14,3 +14,12 @@ MIT License. You can read the license from [here](LICENSE)
 
 ## Credits
 Created by the Code Roller team
+<table>
+	<tr>
+		<td>
+			<a href="https://github.com/code-roller/code-roller-cli/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=code-roller/code-roller-cli" />
+</a>
+		</td>
+	</tr>
+</table>
