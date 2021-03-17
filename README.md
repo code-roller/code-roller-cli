@@ -13,7 +13,7 @@ The code roller cli is licensed under the
 MIT License. You can read the license from [here](LICENSE)
 
 ## Credits
-Created by the Code Roller team
+Created by these members of the Code Roller team
 <table>
 	<tr>
 		<td>
