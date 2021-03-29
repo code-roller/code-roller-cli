@@ -1,0 +1,23 @@
+{
+  "name": "packages",
+  "version": "1.0.0",
+  "description": "A package installer for code-roller",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-roller/package-manager.git"
+  },
+  "keywords": [
+    "cli",
+    "code-roller"
+  ],
+  "author": "Code Roller Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-roller/package-manager/issues"
+  },
+  "homepage": "https://github.com/code-roller/package-manager#readme"
+}
