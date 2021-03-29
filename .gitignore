@@ -1,3 +1,5 @@
 .vscode
 *.pyc
 *.exe
+
+node_modules

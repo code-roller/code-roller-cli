@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/code-roller/package-manager/issues"
   },
-  "homepage": "https://github.com/code-roller/package-manager#readme"
+  "homepage": "https://github.com/code-roller/package-manager#readme",
+  "dependencies": {
+    "@types/node": "^14.14.37"
+  },
+  "devDependencies": {}
 }
