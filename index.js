@@ -7,20 +7,18 @@ const TOKEN = process.env.TOKEN;
 bot.login(TOKEN);
 
 bot.on('ready', () => {
-  console.info(`Logged in as ${bot.user.tag}!`);
+    console.info(`Logged in as ${bot.user.tag}!`);
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('pong');
-    msg.channel.send('pong');
-
-  } else if (msg.content.startsWith('!kick')) {
-    if (msg.mentions.users.size) {
-      const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
-    } else {
-      msg.reply('Please tag a valid user!');
+    const command = msg.content.startsWith("^shurl")
+    if(command){
+        let url = msg.content.toString().split(" ")
+        url = url.slice(1, url.length)
+        if(url.length == 0){
+            msg.reply(":slight_smile:")
+        } else {
+            msg.reply(url[0])
+        }
     }
-  }
 });
