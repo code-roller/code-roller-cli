@@ -4,10 +4,21 @@ const Discord = require('discord.js');
 class Shorten {
     static url = "https://api.rebrandly.com/v1/links"
 
+    /**
+     * @constructor
+     * @param {String} url The url to shorten  
+     */
     constructor(url){
         this.url = url
     }
 
+    /**
+     * 
+     * @param {String} url The url to shorten 
+     * @returns an object with some properties
+     *  - (destination) - The url
+     *  - (domin) - The domain of the shortened url
+     */
     createRequestLinks = (url) => {
         return {
             destination: url.toString(),
@@ -15,6 +26,15 @@ class Shorten {
         }
     }
 
+    /**
+     * Fetched the the shortened url from the api and reply
+     * the user with an embed
+     * 
+     * @param {String} apiKey The rebrand api key to request the server
+     * for a shortened url 
+     * @param {MessageChannel} msg The discord message channel to send 
+     * a reply to the user 
+     */
     createShortenedUrl = (apiKey, msg) => {
         request({
             uri : "https://api.rebrandly.com/v1/links",
