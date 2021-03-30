@@ -25,10 +25,16 @@ class Shorten {
                 "apikey": apiKey,
             }
         }, (error, response, body) => {
+            const image = "https://raw.githubusercontent.com/code-roller/package-manager/main/assets/shurl.jpg"
             let link = JSON.parse(body)
+            const short = `https://${link.shortUrl}`
             let Embed = new Discord.MessageEmbed()
-                .setTitle("Shul")
-                .setDescription(`Here is your url - ${link.shortUrl}`)
+            .setColor('#7289DA')
+            .setTitle('Here is your url')
+            .setURL(short)
+            .setAuthor('Shurl', image, 'https://raw.githubusercontent.com/code-roller/package-manager/main/assets/shurl.jpg')
+            .setDescription(`Your shortened url-${short} :slight_smile:`)
+            .setThumbnail(image)
             msg.reply(Embed)
             return link.shortUrl
         })   
