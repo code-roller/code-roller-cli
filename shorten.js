@@ -8,7 +8,7 @@ class Shorten {
      * @constructor
      * @param {String} url The url to shorten  
      */
-    constructor(url){
+    constructor(url) {
         this.url = url
     }
 
@@ -37,10 +37,10 @@ class Shorten {
      */
     createShortenedUrl = (apiKey, msg) => {
         request({
-            uri : "https://api.rebrandly.com/v1/links",
-            method : "POST",
-            body : JSON.stringify(this.createRequestLinks(this.url)),
-            headers : {
+            uri: "https://api.rebrandly.com/v1/links",
+            method: "POST",
+            body: JSON.stringify(this.createRequestLinks(this.url)),
+            headers: {
                 "Content-Type": "application/json",
                 "apikey": apiKey,
             }
@@ -49,15 +49,15 @@ class Shorten {
             let link = JSON.parse(body)
             const short = `https://${link.shortUrl}`
             let Embed = new Discord.MessageEmbed()
-            .setColor('#7289DA')
-            .setTitle('Here is your url')
-            .setURL(short)
-            .setAuthor('Shurl', image, 'https://raw.githubusercontent.com/code-roller/package-manager/main/assets/shurl.jpg')
-            .setDescription(`Your shortened url-${short} :slight_smile:`)
-            .setThumbnail(image)
+                .setColor('#7289DA')
+                .setTitle('Here is your url')
+                .setURL(short)
+                .setAuthor('Shurl', image, 'https://raw.githubusercontent.com/code-roller/package-manager/main/assets/shurl.jpg')
+                .setDescription(`Your shortened url-${short} :slight_smile:`)
+                .setThumbnail(image)
             msg.reply(Embed)
             return link.shortUrl
-        })   
+        })
     }
 }
 
