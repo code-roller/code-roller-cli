@@ -23,10 +23,9 @@ bot.on('message', msg => {
         if(url.length == 0){
             msg.reply(":slight_smile:")
         } else {
-            const shortener = new Shorten(
-                url[0], URL
-            )
-            msg.reply(url[0])
+            const shortener = new Shorten(url[0]).createShortenedUrl(URL, msg)
+            console.log(shortener)
+            
         }
     }
 });
