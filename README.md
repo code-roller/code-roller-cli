@@ -1,25 +1,18 @@
-# Code Roller CLI
-The official Code Roller Cli
+# Shurl
+The bot that shortens a url for you
+<hr>
+ 
+ ## What is shurl
+ Shurl is a discord bot that allowes users to shorten urls.
+ The Shurl bot is created by Code Roller.
 
-## Usage
-To install:
-```
-code-roller install $package$
-```
-where package can be anything in [requirements.txt](requirements.txt)
+## How to use it??
+Shurl can be used with the Prefix `^shurl` followed by the url.
+`shurl https://github.com/code-roller/shurl-discord-bot`
 
-## License
-The code roller cli is licensed under the
-MIT License. You can read the license from [here](LICENSE)
+<hr>
 
-## Credits
-Created by these members of the Code Roller team
-<table>
-	<tr>
-		<td>
-			<a href="https://github.com/code-roller/code-roller-cli/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=code-roller/code-roller-cli" />
-</a>
-		</td>
-	</tr>
-</table>
+## How does the bot work ?
+The bot uses the rebrand api to shorten urls .
+
+<hr>
