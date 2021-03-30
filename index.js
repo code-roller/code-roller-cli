@@ -1,14 +1,19 @@
 require('dotenv').config();
+
 const Discord = require('discord.js');
+const Shorten = require('./shorten.js');
 const bot = new Discord.Client();
 
+
 const TOKEN = process.env.TOKEN;
+const URL = process.env.URL
 
 bot.login(TOKEN);
 
 bot.on('ready', () => {
     console.info(`Logged in as ${bot.user.tag}!`);
 });
+
 
 bot.on('message', msg => {
     const command = msg.content.startsWith("^shurl")
@@ -18,6 +23,9 @@ bot.on('message', msg => {
         if(url.length == 0){
             msg.reply(":slight_smile:")
         } else {
+            const shortener = new Shorten(
+                url[0], URL
+            )
             msg.reply(url[0])
         }
     }
